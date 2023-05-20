@@ -16,6 +16,7 @@ body {
 table {
   background: #323232;
   border-collapse: collapse; /* Remove default borders between cells, also prohibits the use of padding attribute on this element*/
+  width: 100%;
 }
 
 caption, th, td {
@@ -24,4 +25,20 @@ caption, th, td {
 
 caption, th {
   text-align: left;
+}
+
+caption {
+  background: hsl(0, 0%, 0%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+th {
+  background: hsl(0 0% 0% / 0.5);
+  font-weight: 700;
+}
+
+tr:nth-child(even) {
+  background: hsl(0 0% 0% / 0.25);
 }
