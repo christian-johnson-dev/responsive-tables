@@ -12,3 +12,16 @@ body {
   width: min(900px, 100% - 3rem);
   margin-inline: auto;
 }
+
+table {
+  background: #323232;
+  border-collapse: collapse; /* Remove default borders between cells, also prohibits the use of padding attribute on this element*/
+}
+
+caption, th, td {
+  padding: 1rem;
+}
+
+caption, th {
+  text-align: left;
+}
