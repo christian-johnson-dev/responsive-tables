@@ -15,7 +15,7 @@ body {
 
 table {
   background: #323232;
-  border-collapse: collapse; /* Remove default borders between cells, also prohibits the use of padding attribute on this element*/
+  border-collapse: collapse; /* Remove default borders between cells, but also prohibits the use of padding attribute on this element*/
   width: 100%;
 }
 
@@ -43,7 +43,59 @@ tr:nth-child(even) {
   background: hsl(0 0% 0% / 0.25);
 }
 
-.table-container{
-  max-width: 100%;
-  overflow-x: scroll;
+
+
+
+/* === Better Responsive table ===*/
+
+@media (max-width: 650px){
+  thead, tbody, th, tr {
+    display: block;
+  }
+
+  /* Hide the table header */
+
+  /*"display: none;"  This code hides the table header completely, but it also makes it unreadable to screen readers*/
+  /* thead {
+    display: none;
+  } */
+
+  /* This breaks the header row element from the table and pushes it way off screen-- effective but not entirely reliable since some modern screen readers will ignore offscreen elements*/
+  /* thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  } */
+
+  /* This code hides the table header visually, but it is still accessible to screen readers*/
+  thead tr {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+
+  
+  td {
+    display: grid;
+    /* This code sets the grid template columns to two columns that are equal in size. */
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0.5rem 1rem;
+  }
+  td:first-child{
+    padding-top: 1.5rem
+  }
+  td:last-child{
+    padding-bottom: 1.5rem
+  }
+  td::before {
+    content: attr(aria-label) ": ";
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
 }
+
+
